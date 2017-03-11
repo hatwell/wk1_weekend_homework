@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'minitest/rg'
 require_relative '../pet_shop'
 
 class TestPetShop < Minitest::Test
@@ -73,8 +74,9 @@ class TestPetShop < Minitest::Test
   end
 
   def test_pet_shop_name
-    name = pet_shop_name(@pet_shop)
-    assert_equal("Camelot of Pets", name)
+    expected = "Camelot of Pets"
+    actual = pet_shop_name(@pet_shop)
+    assert_equal(expected, actual)
   end
 
   # def test_total_cash
