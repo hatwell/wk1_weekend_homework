@@ -72,24 +72,25 @@ class TestPetShop < Minitest::Test
         name: "Camelot of Pets"
       }
   end
-
-  def test_pet_shop_name
-    expected = "Camelot of Pets"
-    actual = pet_shop_name(@pet_shop)
-    assert_equal(expected, actual)
-  end
-
-  # def test_total_cash
-  #   sum = total_cash(@pet_shop)
-  #   assert_equal(1000, sum)
+  #
+  # def test_pet_shop_name
+  #   expected = "Camelot of Pets"
+  #   actual = pet_shop_name(@pet_shop)
+  #   assert_equal(expected, actual)
   # end
-
+  #
+  # def test_total_cash
+  #   expected = 1000
+  #   actual = total_cash(@pet_shop)
+  #   assert_equal(expected, actual)
+  # end
+  #
   # def test_add_or_remove_cash__add
   #   add_or_remove_cash(@pet_shop,10)
   #   cash = total_cash(@pet_shop)
   #   assert_equal(1010, cash)
   # end
-
+  #
   # def test_add_or_remove_cash__remove
   #   add_or_remove_cash(@pet_shop,-10)
   #   cash = total_cash(@pet_shop)
@@ -122,10 +123,10 @@ class TestPetShop < Minitest::Test
   #   assert_equal(0, pets.count)
   # end
 
-  # def test_find_pet_by_name__returns_pet
-  #   pet = find_pet_by_name(@pet_shop, "Arthur")
-  #   assert_equal("Arthur", pet[:name])
-  # end
+  def test_find_pet_by_name__returns_pet
+    pet = find_pet_by_name(@pet_shop, "Arthur")
+    assert_equal("Arthur", pet[:name])
+  end
 
   # def test_find_pet_by_name__returns_nil
   #   pet = find_pet_by_name(@pet_shop, "Fred")
