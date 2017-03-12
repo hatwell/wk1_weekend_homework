@@ -1,6 +1,7 @@
 class PetShop
-  def initialize(pet_shop)
+  def initialize(pet_shop, customers)
     @pet_shop = pet_shop
+    @customers = customers
   end
 
   def pet_shop_name
@@ -36,6 +37,37 @@ class PetShop
     end
     return pets_of_breed
   end
+
+  def find_pet_by_name(name)
+    for pet in @pet_shop[:pets]
+      if pet[:name] == name
+        return pet
+      end
+    end
+    return nil
+  end
+
+  def remove_pet_by_name(name)
+    for pet in @pet_shop[:pets]
+      if pet[:name] == name
+        @pet_shop[:pets].delete(pet)
+      end
+    end
+  end
+
+  def add_pet_to_stock(new_pet)
+    @pet_shop[:pets].push(new_pet)
+  end
+
+  def customer_pet_count(customer)
+    for person in @customers
+      if person[:name] == customer
+        return person[:pets].size
+      end
+    end
+  end
+
+
 
 end
 
@@ -85,6 +117,17 @@ camelot_pet_shop = {
     name: "Camelot of Pets"
   }
 
-camelot = PetShop.new(camelot_pet_shop)
+camelot_customers = [
+      {
+        name: "Craig",
+        pets: [],
+        cash: 1000
+      },
+      {
+        name: "Zsolt",
+        pets: [],
+        cash: 50
+      }
+    ]
 
-puts camelot.pets_by_breed("Husky")
+camelot = PetShop.new(camelot_pet_shop, camelot_customers)
