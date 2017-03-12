@@ -4,12 +4,16 @@ class PetShop
     @admin = admin
   end
 
-  def display
-    puts "This pet shop is called #{@name}."
+  def pet_shop_name
+    return @name
   end
 
   def who_owns_the_place
     puts "The owner of the shop is #{@admin}"
+  end
+
+  def total_cash
+    return @admin[:total_cash]
   end
 end
 
@@ -20,4 +24,4 @@ cam_admin = {
 
 camelot = PetShop.new("Camelot of Pets", cam_admin)
 
-puts camelot.who_owns_the_place
+puts camelot.total_cash
