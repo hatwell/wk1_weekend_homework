@@ -19,10 +19,23 @@ class PetShop
     return @pet_shop[:admin][:pets_sold]
   end
 
-  def increase_pets_sold(shop, amount)
+  def increase_pets_sold(amount)
     @pet_shop[:admin][:pets_sold] += amount
   end
 
+  def stock_count
+    return @pet_shop[:pets].size
+  end
+
+  def pets_by_breed(breed)
+    pets_of_breed = Array.new
+    for animal in @pet_shop[:pets]
+      if animal[:breed] == breed
+        pets_of_breed.push(animal)
+      end
+    end
+    return pets_of_breed
+  end
 
 end
 
@@ -74,4 +87,4 @@ camelot_pet_shop = {
 
 camelot = PetShop.new(camelot_pet_shop)
 
-puts camelot.pet_shop_name
+puts camelot.pets_by_breed("Husky")
